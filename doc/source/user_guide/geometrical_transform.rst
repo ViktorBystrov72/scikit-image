@@ -32,6 +32,35 @@ functions described in :ref:`sphx_glr_auto_examples_transform_plot_rescale.py`
    :align: center
    :width: 80%
 
+.. _transform-boundary-modes:
+
+Boundary modes
+--------------
+
+The ``mode`` parameter of :func:`resize`, :func:`rescale`, :func:`rotate`,
+:func:`swirl` and :func:`warp` uses the names from :func:`numpy.pad`.
+When choosing the same boundary condition in :mod:`scipy.ndimage`, use
+the corresponding SciPy name from the table.
+
+.. list-table::
+   :header-rows: 1
+
+   * - scikit-image mode
+     - SciPy mode
+   * - ``constant``
+     - ``grid-constant``
+   * - ``edge``
+     - ``nearest``
+   * - ``symmetric``
+     - ``reflect``
+   * - ``reflect``
+     - ``mirror``
+   * - ``wrap``
+     - ``grid-wrap``
+
+scikit-image's ``symmetric`` mode repeats the edge pixel during reflection.
+Its ``reflect`` mode skips that repeat.
+
 Projective transforms (homographies)
 ------------------------------------
 

@@ -108,7 +108,8 @@ def resize(
         the range 0-5. See `skimage.transform.warp` for detail.
     mode : {'constant', 'edge', 'symmetric', 'reflect', 'wrap'}, optional
         Points outside the boundaries of the input are filled according
-        to the given mode.  Modes match the behaviour of `numpy.pad`.
+        to the given mode.  Modes match the behaviour of `numpy.pad`. See :ref:`transform-boundary-modes` for the
+        corresponding SciPy names.
     cval : float, optional
         Used in conjunction with mode 'constant', the value outside
         the image boundaries.
@@ -266,7 +267,8 @@ def rescale(
         the range 0-5. See `skimage.transform.warp` for detail.
     mode : {'constant', 'edge', 'symmetric', 'reflect', 'wrap'}, optional
         Points outside the boundaries of the input are filled according
-        to the given mode.  Modes match the behaviour of `numpy.pad`.
+        to the given mode.  Modes match the behaviour of `numpy.pad`. See :ref:`transform-boundary-modes` for the
+        corresponding SciPy names.
     cval : float, optional
         Used in conjunction with mode 'constant', the value outside
         the image boundaries.
@@ -384,7 +386,8 @@ def rotate(
         the range 0-5. See `skimage.transform.warp` for detail.
     mode : {'constant', 'edge', 'symmetric', 'reflect', 'wrap'}, optional
         Points outside the boundaries of the input are filled according
-        to the given mode.  Modes match the behaviour of `numpy.pad`.
+        to the given mode.  Modes match the behaviour of `numpy.pad`. See :ref:`transform-boundary-modes` for the
+        corresponding SciPy names.
     cval : float, optional
         Used in conjunction with mode 'constant', the value outside
         the image boundaries.
@@ -578,7 +581,8 @@ def swirl(
     mode : {'constant', 'edge', 'symmetric', 'reflect', 'wrap'}, optional
         Points outside the boundaries of the input are filled according
         to the given mode, with 'reflect' used as the default. Modes match
-        the behaviour of `numpy.pad`.
+        the behaviour of `numpy.pad`. See :ref:`transform-boundary-modes` for the
+        corresponding SciPy names.
     cval : float, optional
         Used in conjunction with mode 'constant', the value outside
         the image boundaries.
@@ -843,7 +847,8 @@ def warp(
          Default is 0 if image.dtype is bool and 1 otherwise.
     mode : {'constant', 'edge', 'symmetric', 'reflect', 'wrap'}, optional
         Points outside the boundaries of the input are filled according
-        to the given mode.  Modes match the behaviour of `numpy.pad`.
+        to the given mode.  Modes match the behaviour of `numpy.pad`. See :ref:`transform-boundary-modes` for the
+        corresponding SciPy names.
     cval : float, optional
         Used in conjunction with mode 'constant', the value outside
         the image boundaries.
