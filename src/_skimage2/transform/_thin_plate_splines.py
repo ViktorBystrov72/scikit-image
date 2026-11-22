@@ -7,7 +7,7 @@ from _skimage2._shared.utils import check_nD, _deprecate_estimate, FailedEstimat
 
 
 class ThinPlateSplineTransform:
-    """Thin-plate spline transformation.
+    r"""Thin-plate spline transformation.
 
     Given two matching sets of points, source and destination, this class
     estimates the thin-plate spline (TPS) transformation which transforms
@@ -17,6 +17,23 @@ class ThinPlateSplineTransform:
     ----------
     src : array_like of shape (N, 2)
         Coordinates of control points in source image.
+
+    Notes
+    -----
+    The transformation maps a point :math:`\mathbf{x}` to the sum of an
+    affine component and a non-affine component [1]_.
+
+    .. math::
+
+        T(\mathbf{x}) = \mathbf{b} + A\mathbf{x}
+            + \sum_{i=1}^{N} \mathbf{w}_i U(\lVert\mathbf{x} - \mathbf{p}_i\rVert).
+
+    The affine component :math:`\mathbf{b} + A\mathbf{x}` can represent a
+    translation, rotation, scaling, or shear. The non-affine component is a
+    weighted sum of radial basis functions :math:`U` centered at the source
+    control points :math:`\mathbf{p}_i`. It lets straight lines bend between
+    control points. In the rotation example below, the affine component alone
+    is sufficient.
 
     References
     ----------
