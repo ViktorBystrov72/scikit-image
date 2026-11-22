@@ -241,6 +241,7 @@ def rescale(
     """Scale image by a certain factor.
 
     Performs interpolation to up-scale or down-scale N-dimensional images.
+    Set `channel_axis` to preserve the number of channels in a multichannel image.
     Note that anti-aliasing should be enabled when down-sizing images to avoid
     aliasing artifacts. For down-sampling with an integer factor also see
     `skimage.transform.downscale_local_mean`.
@@ -289,9 +290,8 @@ def rescale(
         By default, this value is chosen as (s - 1) / 2 where s is the
         down-scaling factor.
     channel_axis : int or None, optional
-        If None, the image is assumed to be a grayscale (single channel) image.
-        Otherwise, this parameter indicates which axis of the array corresponds
-        to channels.
+        Axis of the channels, which is left unchanged. If None (default),
+        all axes are treated as spatial and rescaled.
 
         .. versionadded:: 0.19
            ``channel_axis`` was added in 0.19.
@@ -313,6 +313,11 @@ def rescale(
     (51, 51)
     >>> rescale(image, 0.5).shape
     (256, 256)
+
+    Rescale only the height and width of an RGB image with channels last:
+
+    >>> rescale(data.astronaut(), 0.5, channel_axis=-1).shape
+    (256, 256, 3)
 
     """
     scale = np.atleast_1d(scale)
